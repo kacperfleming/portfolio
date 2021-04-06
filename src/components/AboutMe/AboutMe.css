@@ -1,0 +1,80 @@
+.AboutMe {
+    display: flex;
+    align-items: center;
+    height: auto;
+    min-height: 90vh;
+    width: 100%;
+}
+
+.AboutMe--Canvas {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+}
+
+.AboutMe--Content {
+    width: 100%;
+    min-height: 90vh;
+    padding: 50px 10px 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+
+}
+
+.AboutMe--Content-Info {
+        margin-bottom: 50px;
+        width: 90%;
+        margin: 0 auto 50px;
+}
+
+
+@media (min-width: 800px) {
+    .AboutMe--Content-Info {
+        width: 50%;
+        margin: 0 auto;
+        padding: 100px 0 50px;
+    }
+}
+
+.AboutMe--Content-Skills {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 520px) {
+    .AboutMe--Content-Skills {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.AboutMe--Content-Skills-Skill {
+    display: block;
+    margin: 0 auto 15px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+@media (min-width: 520px) {
+    .AboutMe--Content-Skills-Skill {
+        width: 150px;
+        padding: 20px 10px;
+        border-radius: 10px;
+        border: 1px solid grey;
+        background:rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease-out;
+    }
+
+    .AboutMe--Content-Skills-Skill:hover {
+        border: 1px solid rgb(99, 133, 196);
+        transform: scale(1.05);
+    }
+}
+
+.AboutMe--Stars-Gold {
+    color: gold;
+}

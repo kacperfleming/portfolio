@@ -1,0 +1,62 @@
+.List-Wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.List-Wrapper h2 {
+    cursor: pointer;
+    margin-bottom: 1vh;
+    display: block;
+    text-align: center;
+    width: auto;
+    transition: all .3s ease-out;
+}
+
+
+
+.List-Wrapper h2:hover {
+    color: rgb(99, 133, 196);
+}
+
+.List-Wrapper h2:hover ~ .List li {
+    border-color: rgb(99, 133, 196);
+}
+
+.List {
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin-bottom: 2vh;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.List li {
+    display: block;
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 5px;
+    transition: all 0.3. ease-out;
+}
+
+.List li:hover {
+    border: 1px solid rgb(99, 133, 196);
+
+}
+
+.List a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 500px) {
+    .List {
+        width: 400px;
+    }
+}
