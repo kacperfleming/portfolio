@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import "./Canvas.css";
 
-let iw = window.innerWidth;
-let ih = window.innerHeight * 0.9;
+let iw;
+let ih;
 
 const mouse = {
   x: null,
@@ -129,7 +129,9 @@ const Canvas = props => {
   const canv = useRef();
 
   useEffect(() => {
-    console.log('effect');
+    iw = window.innerWidth;
+    ih = window.innerHeight * 0.9;
+
     const canvas = canv.current;
     const ctx = canvas.getContext("2d");
     let animationFrameId;
@@ -137,16 +139,16 @@ const Canvas = props => {
     canvas.width = iw;
     canvas.height = ih;
 
-    const mouseHandler = function(event) {
+    function mouseHandler(event) {
       mouse.x = event.x;
       mouse.y = event.y - ih * 0.11 + mouseAdjustment;
     };
 
-    const scrollHandler = function() {
+    function scrollHandler() {
       mouseAdjustment = window.scrollY;
     }
 
-    const resizeHandler = function() {
+    function resizeHandler() {
       console.log('resize canvas');
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       iw = window.innerWidth;

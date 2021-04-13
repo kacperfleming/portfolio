@@ -71,8 +71,6 @@ const draw = (ctx) => {
   connect(ctx);
 };
 
-
-
 const AboutMe = (props) => {
   const canv = useRef();
 
@@ -84,7 +82,8 @@ const AboutMe = (props) => {
     canvas.width = iw;
     canvas.height = ih;
 
-    const resizeHandler = function () {
+    function resizeHandler() {
+      console.log("resize");
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       iw = window.innerWidth;
       ih = window.innerHeight * 0.9;
@@ -103,7 +102,7 @@ const AboutMe = (props) => {
     };
     animate();
 
-    return function() {
+    return function () {
       window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resizeHandler);
     };
@@ -115,34 +114,61 @@ const AboutMe = (props) => {
       <div className="AboutMe--Content">
         <div className="AboutMe--Content-Info">
           <h1>Hello World! I'm Kacper</h1>
-          <p style={{textAlign: 'center'}}>I'm junior JavaScript Developer and IT in Business student</p>
+          <p style={{ textAlign: "center" }}>
+            I'm junior JavaScript Developer and IT in Business student
+          </p>
           <br />
-          <p style={{textAlign: 'center'}}>
+          <p style={{ textAlign: "center" }}>
             As a person intrested in Web Development, I'm eager to develop
             skills related to the following technologies
           </p>
         </div>
-        <div className="AboutMe--Content-Skills">
-            <div className="AboutMe--Content-Skills-Skill">
-                <h2>JavaScript</h2>
-                <span className="AboutMe--Stars-Gold">☆☆☆</span><span>☆☆</span>
-            </div>
-            <div className="AboutMe--Content-Skills-Skill">
-                <h2>React</h2>
-                <span className="AboutMe--Stars-Gold">☆☆</span><span>☆☆☆</span>
-            </div>
-            <div className="AboutMe--Content-Skills-Skill">
-                <h2>Redux</h2>
-                <span className="AboutMe--Stars-Gold">☆☆</span><span>☆☆☆</span>
-            </div>
-            <div className="AboutMe--Content-Skills-Skill">
-                <h2>Html</h2>
-                <span className="AboutMe--Stars-Gold">☆☆☆☆</span><span>☆</span>
-            </div>
-            <div className="AboutMe--Content-Skills-Skill">
-                <h2>CSS</h2>
-                <span className="AboutMe--Stars-Gold">☆☆☆☆</span><span>☆</span>
-            </div>
+        <div className="AboutMe--Content-Skills-Frontend">
+          <h2>Front-end skills</h2>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>JavaScript</h2>
+            <span className="AboutMe--Stars-Gold">☆☆☆</span>
+            <span>☆☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>React</h2>
+            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span>☆☆☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>Redux</h2>
+            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span>☆☆☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>Redux-Saga</h2>
+            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span>☆☆☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>Html</h2>
+            <span className="AboutMe--Stars-Gold">☆☆☆☆</span>
+            <span>☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>CSS</h2>
+            <span className="AboutMe--Stars-Gold">☆☆☆☆</span>
+            <span>☆</span>
+          </div>
+        </div>
+
+        <div className="AboutMe--Content-Skills-Other">
+          <h2>Other skills</h2>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>Git</h2>
+            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span>☆☆☆</span>
+          </div>
+          <div className="AboutMe--Content-Skills-Skill">
+            <h2>English</h2>
+            <span className="AboutMe--Stars-Gold">☆☆☆</span>
+            <span>☆☆</span>
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import './Toolbar.css';
 
 const toolbar = props => (
     <header className="Toolbar">
-        <Button btnType="Toggler" clicked={props.toggleSideDrawer}></Button>
+        <Button btnType="Toggler" clicked={props.toggleSideDrawer} open={props.togglerState}></Button>
 
         <nav className="DesktopOnly">
             <NavigationItems />

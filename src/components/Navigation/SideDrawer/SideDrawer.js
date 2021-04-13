@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NavigationItems from '../NavigationItems/NavigationItems';
+import Backdrop from '../../UI/Backdrop/Backdrop';
 import './SideDrawer.css';
 
 const sideDrawer = props => {
@@ -9,7 +10,8 @@ const sideDrawer = props => {
 
     return (
         <React.Fragment>
-            <div className={classes.join(' ')}>
+            <Backdrop show={props.show} clicked={props.close} />
+            <div onClick={props.close} className={classes.join(' ')}>
                 <nav>
                     <NavigationItems />
                 </nav>

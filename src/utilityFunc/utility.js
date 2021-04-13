@@ -2,3 +2,10 @@ const chars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','
 
 export const randNum = (min, max) => Math.floor(Math.random() * (max-min) + min + 1);
 export const randChar = () => chars[randNum(0, 36)];
+
+export const updateObj = (oldObject, values) => {
+    return {
+        ...oldObject,
+        ...values
+    }
+}
