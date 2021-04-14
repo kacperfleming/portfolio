@@ -14,7 +14,7 @@ const button = props => {
 
     return (
     <button className={["Button", props.btnType].join(' ')} onClick={props.clicked}>
-        {content}
+        <span className="Button--Content">{content}</span>
     </button>
     )
 };

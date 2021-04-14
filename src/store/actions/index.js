@@ -4,6 +4,7 @@ export {
     authStart,
     authSuccess,
     checkAuthTimeout,
+    initiateLogout,
     logout,
     checkAuthState
 } from './auth';

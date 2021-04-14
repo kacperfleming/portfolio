@@ -89,7 +89,7 @@ function connect(ctx) {
       let mdyb = mouse.y - particleArray[b].y;
       let dmb = Math.sqrt(Math.pow(mdxb, 2) + Math.pow(mdyb, 2));
 
-      if (distance < 10) {
+      if (distance < 8) {
         ctx.strokeStyle = "lightblue";
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -201,7 +201,6 @@ const Canvas = props => {
     animate();
 
     return function() {
-      console.log('clear');
       window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener("mousemove", mouseHandler);
       window.removeEventListener("resize", resizeHandler);

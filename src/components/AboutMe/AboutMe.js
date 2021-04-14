@@ -6,8 +6,6 @@ let iw = window.innerWidth;
 let ih = window.innerHeight * 0.9;
 
 let particleArray = [];
-const adjustX = 5;
-const adjustY = 100;
 
 class Particle {
   constructor() {
@@ -115,7 +113,7 @@ const AboutMe = (props) => {
         <div className="AboutMe--Content-Info">
           <h1>Hello World! I'm Kacper</h1>
           <p style={{ textAlign: "center" }}>
-            I'm junior JavaScript Developer and IT in Business student
+            I'm junior Front-end Developer and IT in Business student
           </p>
           <br />
           <p style={{ textAlign: "center" }}>

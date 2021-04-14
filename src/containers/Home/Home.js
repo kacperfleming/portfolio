@@ -19,6 +19,8 @@ const Home = () => {
         setCanvTxt('I\'m Kacper'), 6000);
         const timer3 = setTimeout(() =>
         setCanvTxt('Coding\'s my passion'), 9000);
+        const timer4 = setTimeout(() =>
+        setCanvTxt('</>'), 12000);
 
         return () => {
             clearTimeout(timer);

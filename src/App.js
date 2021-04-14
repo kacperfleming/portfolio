@@ -9,6 +9,7 @@ import Home from "./containers/Home/Home";
 import AboutMe from './components/AboutMe/AboutMe';
 import Projects from "./containers/Projects/Projects";
 import Auth from './containers/Auth/Auth';
+import Logout from './containers/Auth/Logout';
 
 
 import "./App.css";
@@ -17,7 +18,7 @@ function App(props) {
 
   useEffect(() => {
     props.onCheckState();
-  }, []);
+  }, [props.onCheckState]);
 
   let routes = (
     <Switch>
@@ -28,6 +29,18 @@ function App(props) {
       <Redirect to="/" />
     </Switch>
   );
+
+  if(props.isAuthenticated) {
+    routes = (
+      <Switch>
+        <Route path="/projects" component={Projects} />
+        <Route path="/about-me" component={AboutMe} />
+        <Route path="/logout" component={Logout} />
+        <Route path="/" exact component={Home} />
+        <Redirect to="/" />
+      </Switch>
+    )
+  }
 
   return (
     <div>

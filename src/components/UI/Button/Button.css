@@ -7,7 +7,6 @@
   font: inherit;
   margin: 10px;
   font-weight: bold;
-  z-index: 200;
 }
 
 .Toggler {
@@ -81,9 +80,50 @@
 }
 
 .Submit {
-  color: rgb(99, 196, 99);
+  position: relative;
+  padding: 2px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
 }
+
+.Submit:hover {
+  color: rgb(99, 206, 99);
+}
+
+.Submit .Button--Content::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  background: cyan;
+  transition: all 0.2s ease-in-out;
+}
+
+.Submit .Button--Content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 0;
+  background: cyan;
+  transition: all 0.2s ease-in-out;
+}
+
+.Submit:hover .Button--Content::before,
+.Submit:hover .Button--Content::after {
+  height: 100%;
+}
+
 
 .Changer {
   color: rgb(129, 119, 119);
+  transition: all 0.2s ease-in-out;
+}
+
+.Changer:hover {
+  color: rgb(189, 178, 178);
+  transform: scale(1.3);
 }

@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import projects from "../../containers/Projects/Projects";
-
 import List from "../UI/List/List";
 
 const listsContent = [
