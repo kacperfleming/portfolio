@@ -1,7 +1,7 @@
 import React from 'react';
 import './Button.css';
 
-const button = props => {
+function Button(props) {
     const content = props.btnType === "Toggler"
     ? (<div className={["Toggler", props.open ? "Open" : ''].join(' ')}>
         <input type="checkbox" />
@@ -14,9 +14,9 @@ const button = props => {
 
     return (
     <button className={["Button", props.btnType].join(' ')} onClick={props.clicked}>
-        <span className="Button--Content">{content}</span>
+        <span className="Button--Content"></span>{content}
     </button>
     )
 };
 
-export default button;
+export default Button;

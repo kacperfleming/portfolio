@@ -2,16 +2,16 @@ import React from 'react';
 
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import './SideDrawer.css';
+import classes from './SideDrawer.module.css';
 
-const sideDrawer = props => {
-    let classes = ["SideDrawer", "Close"];
-    if(props.show) classes = ["SideDrawer", "Open"];
+function SideDrawer(props) {
+    let styles = [classes.SideDrawer, classes.Close];
+    if(props.show) styles = [classes.SideDrawer, classes.Open];
 
     return (
         <React.Fragment>
             <Backdrop show={props.show} clicked={props.close} />
-            <div onClick={props.close} className={classes.join(' ')}>
+            <div onClick={props.close} className={styles.join(' ')}>
                 <nav>
                     <NavigationItems />
                 </nav>
@@ -20,4 +20,4 @@ const sideDrawer = props => {
     )
 }
 
-export default sideDrawer;
+export default SideDrawer;

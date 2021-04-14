@@ -1,12 +1,11 @@
 import React from 'react';
 import CharChanging from './CharChanging/CharChanging';
-import {randNum} from '../../../utilityFunc/utility';
+import {randNum} from '../../../usefulFunc/utility';
 
-import './StringVariation.css';
 
 const stringVariation = props => {
 
-    return <span className="StringVariation">{props.children.split('').map((char, i) => <CharChanging posInQueue={i} key={i}>{char}</CharChanging>)}</span>;
+    return <span>{props.children.split('').map((char, i) => <CharChanging posInQueue={i} key={i}>{char}</CharChanging>)}</span>;
 
 }
 

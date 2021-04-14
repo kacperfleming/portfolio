@@ -125,7 +125,7 @@ const draw = ctx => {
 
 
 
-const Canvas = props => {
+function Canvas(props) {
   const canv = useRef();
 
   useEffect(() => {

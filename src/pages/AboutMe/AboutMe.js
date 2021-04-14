@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import "./AboutMe.css";
+import classes from "./AboutMe.module.css";
 
 let iw = window.innerWidth;
 let ih = window.innerHeight * 0.9;
@@ -69,7 +69,7 @@ const draw = (ctx) => {
   connect(ctx);
 };
 
-const AboutMe = (props) => {
+function AboutMe(props) {
   const canv = useRef();
 
   useEffect(() => {
@@ -107,10 +107,10 @@ const AboutMe = (props) => {
   }, []);
 
   return (
-    <div className="AboutMe">
-      <canvas className="AboutMe--Canvas" ref={canv} />
-      <div className="AboutMe--Content">
-        <div className="AboutMe--Content-Info">
+    <div className={classes.AboutMe}>
+      <canvas className={classes.Canvas} ref={canv} />
+      <div className={classes.Content}>
+        <div className={classes.Info}>
           <h1>Hello World! I'm Kacper</h1>
           <p style={{ textAlign: "center" }}>
             I'm junior Front-end Developer and IT in Business student
@@ -121,50 +121,50 @@ const AboutMe = (props) => {
             skills related to the following technologies
           </p>
         </div>
-        <div className="AboutMe--Content-Skills-Frontend">
+        <div className={classes.SkillsFrontend}>
           <h2>Front-end skills</h2>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>JavaScript</h2>
-            <span className="AboutMe--Stars-Gold">☆☆☆</span>
+            <span className={classes.StarsGold}>☆☆☆</span>
             <span>☆☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>React</h2>
-            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span className={classes.StarsGold}>☆☆</span>
             <span>☆☆☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>Redux</h2>
-            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span className={classes.StarsGold}>☆☆</span>
             <span>☆☆☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>Redux-Saga</h2>
-            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span className={classes.StarsGold}>☆☆</span>
             <span>☆☆☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>Html</h2>
-            <span className="AboutMe--Stars-Gold">☆☆☆☆</span>
+            <span className={classes.StarsGold}>☆☆☆☆</span>
             <span>☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>CSS</h2>
-            <span className="AboutMe--Stars-Gold">☆☆☆☆</span>
+            <span className={classes.StarsGold}>☆☆☆☆</span>
             <span>☆</span>
           </div>
         </div>
 
-        <div className="AboutMe--Content-Skills-Other">
+        <div className={classes.SkillsOther}>
           <h2>Other skills</h2>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>Git</h2>
-            <span className="AboutMe--Stars-Gold">☆☆</span>
+            <span className={classes.StarsGold}>☆☆</span>
             <span>☆☆☆</span>
           </div>
-          <div className="AboutMe--Content-Skills-Skill">
+          <div className={classes.SkillsSkill}>
             <h2>English</h2>
-            <span className="AboutMe--Stars-Gold">☆☆☆</span>
+            <span className={classes.StarsGold}>☆☆☆</span>
             <span>☆☆</span>
           </div>
         </div>

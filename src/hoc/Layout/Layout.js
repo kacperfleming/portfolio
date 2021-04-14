@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 
-import './Layout.css';
+import classes from './Layout.module.css';
 
-const Layout = props => {
+function Layout(props) {
     const [showSideDrawer, setShowSideDrawer] = useState(false);
 
     const sideDrawerToggleHandler = () => setShowSideDrawer(prevState => !prevState);
@@ -17,7 +17,7 @@ const Layout = props => {
         <Toolbar
             toggleSideDrawer={sideDrawerToggleHandler} togglerState={showSideDrawer} />
         <SideDrawer close={sideDrawerCloseHandler} show={showSideDrawer} />
-        <main className="Content">
+        <main className={classes.Content}>
         {props.children}
         </main>
     </React.Fragment>

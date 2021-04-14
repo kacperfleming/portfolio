@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import Canvas from '../../components/UI/Canvas/Canvas';
-import './Home.css';
+import classes from './Home.module.css';
 
-const Home = () => {
+function Home(props) {
 
     const [canvTxt, setCanvTxt] = useState('');
 
@@ -29,11 +29,8 @@ const Home = () => {
         }
     }, [])
 
-    return(
-        <React.Fragment>
-            {content}
-        </React.Fragment>
-    );
+    return content;
+
 }
 
 export default Home;

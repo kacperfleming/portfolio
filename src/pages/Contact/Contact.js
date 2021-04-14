@@ -2,10 +2,10 @@ import React, {useEffect, useRef} from 'react';
 
 import './Contact.css';
 
-const Contact = () => {
-    
+function Contact(props) {
 
-    return 
+
+    return
 }
 
 export default Contact;

@@ -1,10 +1,10 @@
 import React from "react";
 
-import "./Input.css";
+import classes from "./Input.module.css";
 
-const input = (props) => {
+function Input(props) {
   let inputEl = null;
-  const inputClasses = ["Input"];
+  const inputClasses = [classes.Input];
 
   if (props.invalid && props.shouldValidate && props.touched) {
     inputClasses.push("Invalid");
@@ -28,8 +28,8 @@ const input = (props) => {
   }
 
   return (
-    <div className="InputContainer">
-      <label className="Label">
+    <div className={classes.InputContainer}>
+      <label className={classes.Label}>
         {props.label}
       </label>
       {inputEl}
@@ -37,4 +37,4 @@ const input = (props) => {
   );
 };
 
-export default input;
+export default Input;

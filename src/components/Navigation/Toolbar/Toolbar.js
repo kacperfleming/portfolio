@@ -2,16 +2,16 @@ import React from 'react';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Button from '../../UI/Button/Button';
 
-import './Toolbar.css';
+import classes from './Toolbar.module.css';
 
-const toolbar = props => (
-    <header className="Toolbar">
+const Toolbar = props => (
+    <header className={classes.Toolbar}>
         <Button btnType="Toggler" clicked={props.toggleSideDrawer} open={props.togglerState}></Button>
 
-        <nav className="DesktopOnly">
+        <nav className={classes.DesktopOnly}>
             <NavigationItems />
         </nav>
     </header>
 )
 
-export default toolbar;
+export default Toolbar;

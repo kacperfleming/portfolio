@@ -2,13 +2,13 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import StringVariation from '../../../UI/StringVariation/StringVariation';
 
-import './NavigationItem.css';
+import classes from './NavigationItem.module.css';
 
 const NavigationItem = props => (
-    <li className="NavigationItem">
+    <li className={classes.NavigationItem}>
         <NavLink
         to={props.link}
-        activeClassName="Active">
+        activeClassName={classes.Active}>
             <StringVariation>{props.children}</StringVariation>
         </NavLink>
     </li>

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-const Delayer = props => {
+function Delayer(props) {
     const [el, setEl] = useState(null);
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import * as actions from '../../store/actions/index';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 
-import './Auth.css';
+import classes from './Auth.module.css';
 
 class Auth extends Component {
 
@@ -127,7 +127,7 @@ class Auth extends Component {
 
 
         return (
-            <div className="Auth">
+            <div className={classes.Auth}>
                 {authRedirect}
                 {authError}
                 <form onSubmit={this.onSubmitHandler}>

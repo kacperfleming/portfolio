@@ -6,13 +6,13 @@
     width: 100%;
 }
 
-.AboutMe--Canvas {
+.Canvas {
     position: fixed;
     top: 10vh;
     left: 0;
 }
 
-.AboutMe--Content {
+.Content {
     display: flex;
     flex-direction: column;
     z-index: 50;
@@ -20,7 +20,7 @@
 }
 
 @media (min-width: 900px) {
-    .AboutMe--Content {
+    .Content {
         display: grid;
         grid-template:
         "header header" auto
@@ -34,18 +34,18 @@
     }
 }
 
-.AboutMe--Content-Info {
+.Info {
     padding: 0 50px;
     margin-bottom: 50px;
 }
 
 @media (min-width: 900px) {
-    .AboutMe--Content-Info {
+    .Info {
         grid-area: header;
     }
 }
 
-.AboutMe--Content-Skills-Frontend {
+.SkillsFrontend {
     display: grid;
     gap: 0.5rem;
     grid-template-columns: repeat(auto-fill, 14rem);
@@ -55,18 +55,18 @@
 }
 
 @media (min-width: 900px) {
-    .AboutMe--Content-Skills-Frontend {
+    .SkillsFrontend {
         grid-area: frontend-skills;
         grid-template-columns: repeat(auto-fill, 12rem);
     }
 }
 
-.AboutMe--Content-Skills-Frontend > h2 {
+.SkillsFrontend > h2 {
     grid-column: 1 / -1;
     justify-self: center;
 }
 
-.AboutMe--Content-Skills-Other {
+.SkillsOther {
     grid-area: other-skills;
     display: grid;
     gap: 0.5rem;
@@ -77,18 +77,18 @@
 }
 
 @media (min-width: 900px) {
-    .AboutMe--Content-Skills-Other {
+    .SkillsOther {
         grid-area: other-skills;
         grid-template-columns: repeat(auto-fill, 12rem);
     }
 }
 
-.AboutMe--Content-Skills-Other > h2 {
+.SkillsOther > h2 {
     grid-column: 1 / -1;
     justify-self: center;
 }
 
-.AboutMe--Content-Skills-Skill {
+.SkillsSkill {
     text-align: center;
     border-radius: 10px;
     padding: 10px;
@@ -97,10 +97,10 @@
     transition: all 0.3s cubic-bezier(.2,1.03,.36,1.84);
 }
 
-.AboutMe--Content-Skills-Skill:hover {
+.SkillsSkill:hover {
     transform: scale(1.05);
 }
 
-.AboutMe--Stars-Gold {
+.StarsGold {
     color: gold;
 }

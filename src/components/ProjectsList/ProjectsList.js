@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import List from "../UI/List/List";
 
-const listsContent = [
+const LISTS_CONTENT = [
   {
     title: "Generative Art",
     items: [
@@ -44,8 +44,8 @@ const listsContent = [
   }
 ];
 
-const projectsList = (props) =>
-  listsContent.map((category, i) => (
+const ProjectsList = (props) =>
+  LISTS_CONTENT.map((category, i) => (
     <List key={i} listTitle={category.title} {...props}>
       {category.items.map((item, i) => (
         <NavLink key={i} to={item.link}>
@@ -55,4 +55,4 @@ const projectsList = (props) =>
     </List>
   ));
 
-export default projectsList;
+export default ProjectsList;

@@ -6,7 +6,7 @@
     height: auto;
 }
 
-.List-Wrapper h2 {
+.ListWrapper h2 {
     cursor: pointer;
     margin-bottom: 1vh;
     display: block;
@@ -17,11 +17,11 @@
 
 
 
-.List-Wrapper h2:hover {
+.ListWrapper h2:hover {
     color: rgb(99, 133, 196);
 }
 
-.List-Wrapper h2:hover ~ .List li {
+.ListWrapper h2:hover ~ .List li {
     border-color: rgb(99, 133, 196);
 }
 

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import * as utility from '../../../../utilityFunc/utility';
+import * as utility from '../../../../usefulFunc/utility';
 
-const CharChanging = props => {
+function CharChanging(props) {
     const [char, setChar] = useState('');
 
     useEffect(() => {

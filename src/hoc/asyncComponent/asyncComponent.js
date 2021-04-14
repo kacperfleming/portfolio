@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const asyncComponent = (importComponent) => (() => {
+const AsyncComponent = (importComponent) => (() => {
     const [component, setComponent] = useState(null);
 
     useEffect(() => {
@@ -11,4 +11,4 @@ const asyncComponent = (importComponent) => (() => {
     return C ? <C {...this.props} /> : null;
   })();
 
-export default asyncComponent;
+export default AsyncComponent;

@@ -5,11 +5,11 @@ import {connect} from 'react-redux';
 import * as actions from './store/actions/index';
 
 import Layout from './hoc/Layout/Layout';
-import Home from "./containers/Home/Home";
-import AboutMe from './components/AboutMe/AboutMe';
-import Projects from "./containers/Projects/Projects";
-import Auth from './containers/Auth/Auth';
-import Logout from './containers/Auth/Logout';
+import Home from "./pages/Home/Home";
+import AboutMe from './pages/AboutMe/AboutMe';
+import Projects from "./pages/Projects/Projects";
+import Auth from './pages/Auth/Auth';
+import Logout from './pages/Auth/Logout';
 
 
 import "./App.css";
