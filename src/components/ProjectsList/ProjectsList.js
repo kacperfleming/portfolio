@@ -2,13 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import List from "../UI/List/List";
 
+import classes from './ProjectsList.module.css';
+
 const LISTS_CONTENT = [
   {
     title: "Generative Art",
     items: [
       {
-        itemTitle: "Particle Built Image",
-        link: "/particle-built-image"
+        itemTitle: "Fibonacci Flower",
+        link: "/projects/fibonacci-flower"
       },
       {
         itemTitle: "Fluctuating Text",
@@ -44,15 +46,20 @@ const LISTS_CONTENT = [
   }
 ];
 
-const ProjectsList = (props) =>
-  LISTS_CONTENT.map((category, i) => (
-    <List key={i} listTitle={category.title} {...props}>
-      {category.items.map((item, i) => (
-        <NavLink key={i} to={item.link}>
-          <li>{item.itemTitle}</li>
-        </NavLink>
-      ))}
-    </List>
-  ));
+const ProjectsList = (props) => (
+  <div className={classes.ListsWrapper}>
+    <h1 className={classes.Title}>Projects</h1>
+    {LISTS_CONTENT.map((category, i) => (
+      <List key={i} listTitle={category.title} {...props}>
+        {category.items.map((item, i) => (
+          <NavLink key={i} to={item.link}>
+            <li>{item.itemTitle}</li>
+          </NavLink>
+        ))}
+      </List>
+    ))}
+  </div>
+)
+
 
 export default ProjectsList;

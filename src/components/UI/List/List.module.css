@@ -1,4 +1,4 @@
-.List-Wrapper {
+.ListWrapper {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -15,8 +15,6 @@
     transition: all .3s ease-out;
 }
 
-
-
 .ListWrapper h2:hover {
     color: rgb(99, 133, 196);
 }
@@ -29,7 +27,7 @@
     list-style: none;
     display: flex;
     flex-flow: column;
-    width: 80%;
+    width: 90%;
     margin-bottom: 2vh;
     height: 0;
     overflow: hidden;
@@ -39,6 +37,7 @@
 .List li {
     display: block;
     width: 100%;
+    text-align: center;
     border: 1px solid grey;
     margin-bottom: 10px;
     padding: 5px;
@@ -47,7 +46,6 @@
 
 .List li:hover {
     border: 1px solid rgb(99, 133, 196);
-
 }
 
 .List a {
@@ -57,6 +55,6 @@
 
 @media (min-width: 500px) {
     .List {
-        width: 400px;
+        max-width: 400px;
     }
 }

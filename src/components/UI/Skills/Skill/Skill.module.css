@@ -1,0 +1,17 @@
+.Skill {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+    background:rgba(0, 0, 0, 0.6);
+    transition: all 0.3s cubic-bezier(.2,1.03,.36,1.84);
+}
+
+.Skill:hover {
+    transform: scale(1.05);
+}
+
+
+.Gold {
+    color: gold;
+}

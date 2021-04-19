@@ -7,24 +7,29 @@ function Input(props) {
   const inputClasses = [classes.Input];
 
   if (props.invalid && props.shouldValidate && props.touched) {
-    inputClasses.push("Invalid");
+    inputClasses.push(classes.Invalid);
   }
 
-  switch (props.inputType) {
+  switch (props.elementType) {
     case "input":
       inputEl = <input
           className={inputClasses.join(" ")}
-          {...props.elementConfig}
+          type={props.inputType}
           onChange={props.changed}
-          value={props.value} />;
+          value={props.value}
+          disabled={props.disabled}
+          min={props.min}
+          max={props.max}
+          step={props.step} />;
       break;
 
     case "textarea":
       inputEl = <textarea
           className={inputClasses.join(" ")}
-          {...props.elementConfig}
+          type={props.inputType}
           onChange={props.changed}
           value={props.value} />;
+      break;
   }
 
   return (

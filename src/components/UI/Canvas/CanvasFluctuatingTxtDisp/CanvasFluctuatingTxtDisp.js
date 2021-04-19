@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import "./Canvas.css";
+import classes from "./CanvasFluctuatingTxtDisp.module.css";
 
 let iw;
 let ih;
@@ -208,7 +208,7 @@ function Canvas(props) {
     };
   }, [props.dyspTxt]);
 
-  return <canvas className="Canvas" ref={canv} />;
+  return <canvas className={classes.Canvas} ref={canv} />;
 };
 
 export default Canvas;

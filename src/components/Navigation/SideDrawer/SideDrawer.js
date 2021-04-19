@@ -1,10 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import classes from './SideDrawer.module.css';
 
-function SideDrawer(props) {
+function SideDrawerComp(props) {
     let styles = [classes.SideDrawer, classes.Close];
     if(props.show) styles = [classes.SideDrawer, classes.Open];
 
@@ -19,5 +20,7 @@ function SideDrawer(props) {
         </React.Fragment>
     )
 }
+
+const SideDrawer = props => ReactDOM.createPortal(<SideDrawerComp {...props} />, document.getElementById('sideDrawer-root'));
 
 export default SideDrawer;

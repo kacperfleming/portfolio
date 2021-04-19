@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import classes from "./List.module.css";
 
 function List(props) {
-    const [expansion, setExpansion] = useState(0);
+    const [expansion, setExpansion] = useState(window.innerWidth >= 700 ? 100 : 0);
 
   return (
     <div className={classes.ListWrapper}>
