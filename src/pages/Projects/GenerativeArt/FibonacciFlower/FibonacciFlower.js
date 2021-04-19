@@ -1,4 +1,4 @@
-import {useLayoutEffect, useReducer, useRef, useState} from 'react';
+import React, {useLayoutEffect, useReducer, useRef, useState} from 'react';
 
 import Input from '../../../../components/UI/Input/Input';
 import Button from '../../../../components/UI/Button/Button';
@@ -96,7 +96,6 @@ const FibonacciFlower = props => {
         const resizeHandler = () => {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
-                alert('resize');
                 canvas.height = canvas.getBoundingClientRect().height;
                 canvas.width = canvas.getBoundingClientRect().width;
             }, 500);
@@ -156,13 +155,13 @@ const FibonacciFlower = props => {
     )
 
     return (
-        <div>
+        <React.Fragment>
             <canvas className={classes.Canvas} ref={canv} />
             <div className={classes.RngValSliders}>
             {displayedSliders}
-            <Button btnType="Success" clicked={onInit}>Try it!</Button>
+            <Button btnType="Success" clicked={onInit}>{animationToggler ? 'Stop!' : 'Try it!'}</Button>
             </div>
-        </div>
+        </React.Fragment>
     )
 }
 

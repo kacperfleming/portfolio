@@ -13,8 +13,8 @@ const LISTS_CONTENT = [
         link: "/projects/fibonacci-flower"
       },
       {
-        itemTitle: "Fluctuating Text",
-        link: "/fluctuating-text"
+        itemTitle: "Particle Built Image",
+        link: "/projects/particle-built-image"
       },
     ],
   },

@@ -1,9 +1,18 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+
+import AsyncComponent from '../../hoc/asyncComponent/asyncComponent';
 import ProjectsList from "../../components/ProjectsList/ProjectsList";
-import FibonacciFlower from './GenerativeArt/FibonacciFlower/FibonacciFlower';
 
 import classes from "./Projects.module.css";
+
+const AsyncFibonacciFlower = AsyncComponent(() => {
+  return import("./GenerativeArt/FibonacciFlower/FibonacciFlower");
+})
+
+const AsyncParticleBuiltImage = AsyncComponent(() => {
+  return import("./GenerativeArt/ParticleBuiltImage/ParticleBuildImage");
+})
 
 const projects = (props) => {
   let routes = (
@@ -13,7 +22,12 @@ const projects = (props) => {
             <Route path="/others" /> */}
       <Route
         path={`${props.match.url}/fibonacci-flower`}
-        component={FibonacciFlower}
+        component={AsyncFibonacciFlower}
+      />
+
+      <Route
+        path={`${props.match.url}/particle-built-image`}
+        component={AsyncParticleBuiltImage}
       />
 
       <Route
