@@ -14,6 +14,7 @@ import Logout from './pages/Auth/Logout';
 
 import "./App.css";
 
+
 function App(props) {
   useEffect(() => {
     props.onCheckState();
