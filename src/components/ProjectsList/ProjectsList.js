@@ -16,14 +16,22 @@ const LISTS_CONTENT = [
         itemTitle: "Particle Built Image",
         link: "/projects/particle-built-image"
       },
+      {
+        itemTitle: "Wave",
+        link: "/projects/wave"
+      },
+      {
+        itemTitle: "Colliding Balls",
+        link: "/projects/colliding-balls"
+      },
     ],
   },
   {
-    title: "Pages",
+    title: "Apps",
     items: [
       {
-        itemTitle: "Example 1",
-        link: "/example-1"
+        itemTitle: "To Do List",
+        link: "/projects/to-do-list"
       },
       {
         itemTitle: "Example 2",
@@ -32,7 +40,7 @@ const LISTS_CONTENT = [
     ],
   },
   {
-      title: "Others",
+      title: "Other",
       items: [
           {
               itemTitle: "Other stuff 1",

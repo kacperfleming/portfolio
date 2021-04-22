@@ -14,6 +14,14 @@ const AsyncParticleBuiltImage = AsyncComponent(() => {
   return import("./GenerativeArt/ParticleBuiltImage/ParticleBuildImage");
 })
 
+const AsyncWave = AsyncComponent(() => {
+  return import("./GenerativeArt/Wave/Wave");
+})
+
+const AsyncCollidingBalls = AsyncComponent(() => {
+  return import("./GenerativeArt/CollidingBalls/CollidingBalls");
+})
+
 const projects = (props) => {
   let routes = (
     <Switch>
@@ -28,6 +36,16 @@ const projects = (props) => {
       <Route
         path={`${props.match.url}/particle-built-image`}
         component={AsyncParticleBuiltImage}
+      />
+
+      <Route
+        path={`${props.match.url}/wave`}
+        component={AsyncWave}
+      />
+
+      <Route
+        path={`${props.match.url}/colliding-balls`}
+        component={AsyncCollidingBalls}
       />
 
       <Route

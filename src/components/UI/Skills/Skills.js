@@ -9,6 +9,10 @@ const FRONTEND_SKILLS = [
         level: 3
     },
     {
+        skillName: 'TypeScript',
+        level: 2
+    },
+    {
         skillName: 'React',
         level: 3
     },
@@ -32,6 +36,7 @@ const FRONTEND_SKILLS = [
         skillName: 'CSS',
         level: 4
     },
+
 ];
 
 const OTHER_SKILLS = [
