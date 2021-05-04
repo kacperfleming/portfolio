@@ -29,7 +29,11 @@ const FRONTEND_SKILLS = [
         level: 2
     },
     {
-        skillName: 'REST API/JSON',
+        skillName: 'REST API',
+        level: 3
+    },
+    {
+        skillName: 'Axios',
         level: 3
     },
     {
@@ -68,16 +72,16 @@ const OTHER_SKILLS = [
 
 const Skills = props => (
     <React.Fragment>
-    <div className={classes.SkillsFrontend}>
+    <section className={classes.SkillsFrontend}>
         <h2>Front-end skills</h2>
         {FRONTEND_SKILLS.map(skill =>
             <Skill key={skill.skillName} skillName={skill.skillName} level={skill.level} />)}
-    </div>
-    <div className={classes.SkillsOther}>
+    </section>
+    <section className={classes.SkillsOther}>
         <h2>Other skills</h2>
         {OTHER_SKILLS.map(skill =>
             <Skill key={skill.skillName} skillName={skill.skillName} level={skill.level} />)}
-    </div>
+    </section>
     </React.Fragment>
 );
 

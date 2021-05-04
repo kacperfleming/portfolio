@@ -63,21 +63,6 @@ const FibonacciFlower = props => {
     let initAngle = 2;
     let initSpace = 1;
 
-    function draw(ctx, canvas, col, ang, spa, rad) {
-        const x = canvas.width / 2 + Math.sin(initAngle) * initSpace;
-        const y = canvas.height / 2 + Math.cos(initAngle) * initSpace;
-
-        ctx.beginPath();
-        ctx.fillStyle = `hsl(${col}, 50%, 50%)`;
-        ctx.arc(x, y, rad, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.closePath();
-        initAngle += +ang;
-        initSpace += +spa;
-
-        return {x, y}
-    }
-
     const onInit = () => {
         initSpace = 1;
         initAngle = 2;
@@ -87,7 +72,6 @@ const FibonacciFlower = props => {
     const {color: {value: color}, angle: {value: angle}, space: {value: space}, radius: {value: radius}} = valRng;
 
     useLayoutEffect(() => {
-        console.log(`animation toggler: ${animationToggler}`);
         const canvas = canv.current;
         const ctx = canvas.getContext('2d');
 
@@ -110,9 +94,24 @@ const FibonacciFlower = props => {
 
         let animationFrameId = 0;
 
+        function draw(col, ang, spa, rad) {
+            const x = canvas.width / 2 + Math.sin(initAngle) * initSpace;
+            const y = canvas.height / 2 + Math.cos(initAngle) * initSpace;
+    
+            ctx.beginPath();
+            ctx.fillStyle = `hsl(${col}, 50%, 50%)`;
+            ctx.arc(x, y, rad, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.closePath();
+            initAngle += +ang;
+            initSpace += +spa;
+    
+            return {x, y}
+        }
+
         const animate = () => {
 
-            const {x, y} = draw(ctx, canvas, color, angle, space, radius);
+            const {x, y} = draw(color, angle, space, radius);
             if((y - radius < 0 || y + radius > canvas.getBoundingClientRect().height) && (x - radius < 0 || x + radius > canvas.getBoundingClientRect().width)) {
                 setAnimationToggler(false);
                 return;

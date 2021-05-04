@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useReducer, useState } from "react";
+import {useEffect, useReducer, useState } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
@@ -144,7 +144,7 @@ function Auth(props) {
   }
 
   return (
-    <div className={classes.Auth}>
+    <section className={classes.Auth}>
       {authRedirect}
       {authError}
       <form onSubmit={onSubmitHandler}>
@@ -156,7 +156,7 @@ function Auth(props) {
       <Button btnType="Changer" clicked={onSwitchAuthModeHandler}>
         Sign in / Sign-up
       </Button>
-    </div>
+    </section>
   );
 }
 

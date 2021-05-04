@@ -1,8 +1,7 @@
-import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import AsyncComponent from '../../hoc/asyncComponent/asyncComponent';
-import ProjectsList from "../../components/ProjectsList/ProjectsList";
+import ProjectsList from "./ProjectsList/ProjectsList";
 
 import classes from "./Projects.module.css";
 

@@ -8,6 +8,7 @@ import Layout from './hoc/Layout/Layout';
 import Home from "./pages/Home/Home";
 import AboutMe from './pages/AboutMe/AboutMe';
 import Projects from "./pages/Projects/Projects";
+import Contact from "./pages/Contact/Contact";
 import Auth from './pages/Auth/Auth';
 import Logout from './pages/Auth/Logout';
 
@@ -26,6 +27,7 @@ function App(props) {
       <Route path="/projects" component={Projects} />
       <Route path="/about-me" component={AboutMe} />
       <Route path="/auth" component={Auth} />
+      <Route path="/contact" component={Contact} />
       <Route path="/" exact component={Home} />
       <Redirect to="/" />
     </Switch>

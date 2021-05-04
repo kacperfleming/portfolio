@@ -14,7 +14,7 @@ function Button(props) {
 
     return (
     <button className={["Button", props.btnType].join(' ')} onClick={props.clicked}>
-        <span className="Button--Content"></span>{content}
+        <span className="Button--Content">{content}</span>
     </button>
     )
 };

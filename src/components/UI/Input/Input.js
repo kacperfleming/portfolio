@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./Input.module.css";
 
 function Input(props) {
@@ -30,6 +28,8 @@ function Input(props) {
           onChange={props.changed}
           value={props.value} />;
       break;
+    
+    default: return false
   }
 
   return (

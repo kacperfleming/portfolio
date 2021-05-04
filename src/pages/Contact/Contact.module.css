@@ -1,0 +1,19 @@
+.Contact {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Socials {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.Socials li {
+    margin: 10px 0;
+    padding: 0 10px;
+}

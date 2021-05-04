@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObj} from '../../usefulFunc/utility';
-import { authLogoutSaga } from '../sagas/auth';
 
 const initialState = {
     token: null,

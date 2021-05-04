@@ -5,12 +5,12 @@ import {Redirect} from 'react-router-dom';
 import * as actions from '../../store/actions/index';
 
 function Logout(props) {
-    console.log('test');
+
+    const {onLogout} = props;
 
     useEffect(() => {
-        console.log('logout');
-        props.onLogout();
-    }, [props.onLogout]);
+        onLogout();
+    }, [onLogout]);
 
     return <Redirect to="/" />
 }

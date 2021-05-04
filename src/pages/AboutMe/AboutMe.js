@@ -9,10 +9,10 @@ function AboutMe(props) {
 
 
   return (
-    <div className={classes.AboutMe}>
+    <section className={classes.AboutMe}>
       <Background />
       <div className={classes.Content}>
-        <div className={classes.Info}>
+        <article className={classes.Info}>
           <h1>Hello World! I'm Kacper</h1>
           <p style={{ textAlign: "center" }}>
             I'm junior Web Developer and IT in Business student
@@ -22,10 +22,10 @@ function AboutMe(props) {
             As a person intrested in Web Development, I'm eager to develop
             skills related to the following technologies
           </p>
-        </div>
+        </article>
         <Skills />
       </div>
-    </div>
+    </section>
   );
 };
 
