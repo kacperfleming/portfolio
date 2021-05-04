@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import Canvas from '../../components/UI/Canvas/CanvasFluctuatingTxtDisp/CanvasFluctuatingTxtDisp';
-import classes from './Home.module.css';
 
 let timeout;
 

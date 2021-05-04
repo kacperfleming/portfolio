@@ -1,6 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
-
-import Skills from '../../components/UI/Skills/Skills';
+import Skills from './Skills/Skills';
 import Background from '../../components/UI/Canvas/CanvasConnectedParticlesBG/CanvasConnectedParticlesBG';
 
 import classes from "./AboutMe.module.css";
@@ -17,7 +15,7 @@ function AboutMe(props) {
         <div className={classes.Info}>
           <h1>Hello World! I'm Kacper</h1>
           <p style={{ textAlign: "center" }}>
-            I'm junior Front-end Developer and IT in Business student
+            I'm junior Web Developer and IT in Business student
           </p>
           <br />
           <p style={{ textAlign: "center" }}>

@@ -6,7 +6,7 @@ import classes from './Skills.module.css';
 const FRONTEND_SKILLS = [
     {
         skillName: 'JavaScript',
-        level: 3
+        level: 4
     },
     {
         skillName: 'TypeScript',
@@ -29,12 +29,20 @@ const FRONTEND_SKILLS = [
         level: 2
     },
     {
+        skillName: 'REST API/JSON',
+        level: 3
+    },
+    {
         skillName: 'HTML',
         level: 4
     },
     {
         skillName: 'CSS',
         level: 4
+    },
+    {
+        skillName: 'SCSS',
+        level: 3
     },
 
 ];
@@ -47,7 +55,15 @@ const OTHER_SKILLS = [
     {
         skillName: 'Git',
         level: 2
-    }
+    },
+    {
+        skillName: 'Scrum',
+        level: 2
+    },
+    {
+        skillName: 'Chess',
+        level: 3
+    },
 ];
 
 const Skills = props => (

@@ -15,9 +15,11 @@ import Logout from './pages/Auth/Logout';
 import "./App.css";
 
 function App(props) {
+  const {onCheckState} = props;
+  
   useEffect(() => {
-    props.onCheckState();
-  }, [props.onCheckState]);
+    onCheckState();
+  }, [onCheckState]);
 
   let routes = (
     <Switch>

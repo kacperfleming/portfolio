@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import classes from "./CanvasFluctuatingTxtDisp.module.css";
 
 let iw;
@@ -82,12 +82,6 @@ function connect(ctx) {
       let dx = particleArray[a].x - particleArray[b].x;
       let dy = particleArray[a].y - particleArray[b].y;
       let distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
-      let mdxa = mouse.x - particleArray[a].x;
-      let mdya = mouse.y - particleArray[a].y;
-      let dma = Math.sqrt(Math.pow(mdxa, 2) + Math.pow(mdya, 2));
-      let mdxb = mouse.x - particleArray[b].x;
-      let mdyb = mouse.y - particleArray[b].y;
-      let dmb = Math.sqrt(Math.pow(mdxb, 2) + Math.pow(mdyb, 2));
 
       if (distance < 8) {
         ctx.strokeStyle = "lightblue";

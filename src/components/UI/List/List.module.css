@@ -15,13 +15,13 @@
     transition: all .3s ease-out;
 }
 
-.ListWrapper h2:hover {
+/* .ListWrapper h2:hover {
     color: rgb(99, 133, 196);
 }
 
 .ListWrapper h2:hover ~ .List li {
     border-color: rgb(99, 133, 196);
-}
+} */
 
 .List {
     list-style: none;

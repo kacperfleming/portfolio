@@ -55,10 +55,10 @@ const LISTS_CONTENT = [
 ];
 
 const ProjectsList = (props) => (
-  <div className={classes.ListsWrapper}>
+  <section className={classes.ListsWrapper}>
     <h1 className={classes.Title}>Projects</h1>
     {LISTS_CONTENT.map((category, i) => (
-      <List key={i} listTitle={category.title} {...props}>
+      <List key={i} length={category.items.length} listTitle={category.title} {...props}>
         {category.items.map((item, i) => (
           <NavLink key={i} to={item.link}>
             <li>{item.itemTitle}</li>
@@ -66,7 +66,7 @@ const ProjectsList = (props) => (
         ))}
       </List>
     ))}
-  </div>
+  </section>
 )
 
 

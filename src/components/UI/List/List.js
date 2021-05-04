@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import {useState} from "react";
 
 import classes from "./List.module.css";
 
 function List(props) {
-    const [expansion, setExpansion] = useState(window.innerWidth >= 700 ? 1 : 0);
+    const [expanded, setExpanded] = useState(window.innerWidth >= 700 ? 1 : 0);
 
   return (
     <div className={classes.ListWrapper}>
-      <h2 onClick={() => setExpansion(prevState => prevState ? 0 : 100)}>{props.listTitle}</h2>
-      <ul style={{height: expansion !== 0 ? '100%' : 0, opacity: expansion}} className={classes.List}>
+      <h2 onClick={() => setExpanded(prevState => prevState ? 0 : 1)}>{props.listTitle}</h2>
+      <ul style={{height: expanded !== 0 ? `${props.length * 40}px` : 0}} className={classes.List}>
         {props.children}
       </ul>
     </div>

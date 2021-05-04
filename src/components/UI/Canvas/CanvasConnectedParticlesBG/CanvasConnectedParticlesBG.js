@@ -43,9 +43,9 @@ function connect(ctx) {
       let dy = particleArray[a].y - particleArray[b].y;
       let distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 
-      if (distance < 80) {
+      if (distance < 200) {
         ctx.strokeStyle = "lightblue";
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 20/distance;
         ctx.beginPath();
         ctx.moveTo(particleArray[a].x, particleArray[a].y);
         ctx.lineTo(particleArray[b].x, particleArray[b].y);
