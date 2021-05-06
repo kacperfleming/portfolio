@@ -1,29 +1,43 @@
-import {useRef, useLayoutEffect} from 'react';
+import { useEffect, useLayoutEffect, useState } from "react";
+
+import useCanvas from '../../../../hooks/use-canvas/use-canvas';
+import usePlayground from "../../../../hooks/use-playground/use-playgroundSliders";
 
 import classes from './Wave.module.css';
 
-let iw;
-let ih;
 
 
 const Wave = props => {
-    const canv = useRef();
+    const [ready, setReady] = useState(false);
+
+    const {canvasEl, ctx, size} = useCanvas(ready);
+
+  const { playgroundUI, valRng, animationToggler, setAnimationToggler, stopped, setStopped} = usePlayground({
+    angle: {
+      elementType: "input",
+      inputType: "range",
+      value: "0.5",
+      min: "0.1",
+      max: "10",
+      step: "0.1",
+    },
+    space: {
+      elementType: "input",
+      inputType: "range",
+      value: "0.5",
+      min: "0.1",
+      max: "10",
+      step: "0.1",
+    },
+  });
+
+  useEffect(() => {
+    setReady(true);
+  }, [])
 
     useLayoutEffect(() => {
-        const canvas = canv.current;
-        const ctx = canvas.getContext('2d');
-
-        const resizeHandler = () => {
-            iw = canvas.getBoundingClientRect().width;
-            ih = canvas.getBoundingClientRect().height;
-
-            canvas.width = iw;
-            canvas.height = ih;
-        }
-        resizeHandler();
-
         const wave = {
-            y: canvas.height / 2,
+            y: size.height / 2,
             length: 0.01,
             amplitude: 100,
             frequency: 0.1,
@@ -31,14 +45,12 @@ const Wave = props => {
             counter: 0
         }
 
-        window.addEventListener('resize', resizeHandler);
-
-        let animationFrameId;
+        let animationFrameId = null;
 
         let increment = wave.frequency;
         function animate() {
             ctx.beginPath();
-            ctx.moveTo(0, canvas.height/2);
+            ctx.moveTo(0, size.height/2);
             ctx.strokeStyle = 'hsl(0, 50%, 50%)';
 
 
@@ -49,7 +61,7 @@ const Wave = props => {
             ctx.stroke();
 
             increment += 0.02;
-            ctx.fillRect(0,0,iw,ih);
+            ctx.fillRect(0,0,size.width,size.height);
             ctx.fillStyle = 'rgba(0,0,0,0.05';
 
             wave.counter ++;
@@ -59,7 +71,6 @@ const Wave = props => {
 
         return () => {
             window.cancelAnimationFrame(animationFrameId);
-            window.removeEventListener('resize', resizeHandler);
         }
     }, []);
     return <canvas className={classes.Canvas} ref={canv} />

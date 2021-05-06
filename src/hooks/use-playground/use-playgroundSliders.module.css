@@ -1,0 +1,35 @@
+.RngValSliders {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 1000px) {
+    .RngValSliders {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.Canvas {
+    display: block;
+    width: 100%;
+    height: 80vh;
+    border-top: 5px solid rgb(0, 130, 139);
+    border-bottom: 5px solid rgb(0, 130, 139);
+    background: white;
+    box-shadow: 0 0 10px rgb(0, 130, 139);
+}
+
+@media (min-width: 1000px) {
+    .Canvas {
+        width: 60%;
+        margin: 0 auto;
+        height: 70vh;
+        border: 5px solid rgb(0, 130, 139);
+        border-radius: 15px;
+    }
+}
