@@ -3,7 +3,9 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import useCanvas from '../../../../hooks/use-canvas/use-canvas';
 import usePlaygroundSliders from "../../../../hooks/use-playground/use-playgroundSliders";
 
-const FibonacciFlower = (props) => {
+import gClasses from '../../../../global.module.css';
+
+const FibonacciFlower = () => {
     const [ready, setReady] = useState(false);
 
     const {canvasEl, ctx, size} = useCanvas(ready);
@@ -41,7 +43,7 @@ const FibonacciFlower = (props) => {
       max: "50",
       step: "1",
     },
-  });
+  }, "Fibonacci Flower", true);
 
 
 
@@ -57,26 +59,33 @@ const FibonacciFlower = (props) => {
 
   useEffect(() => {
     setReady(true);
-  }, [])
+  }, []);
+
+  function draw(col, ang, spa, rad) {
+    const x = size.width / 2 + Math.sin(initAngle) * initSpace;
+    const y = size.height / 2 + Math.cos(initAngle) * initSpace;
+
+    ctx.beginPath();
+    ctx.fillStyle = `hsl(${col}, 50%, 50%)`;
+    ctx.arc(x, y, rad, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    initAngle += +ang;
+    initSpace += +spa;
+
+    return { x, y };
+  }
+
+  const onResetAnimationHandler = () => {
+    setAnimationToggler(false);
+    ctx.clearRect(0,0,size.width, size.height);
+    initAngle = 2;
+    initSpace = 1;
+  }
 
   useLayoutEffect(() => {
     if(!ctx) return;
     let animationFrameId = 0;
-
-    function draw(col, ang, spa, rad) {
-      const x = size.width / 2 + Math.sin(initAngle) * initSpace;
-      const y = size.height / 2 + Math.cos(initAngle) * initSpace;
-
-      ctx.beginPath();
-      ctx.fillStyle = `hsl(${col}, 50%, 50%)`;
-      ctx.arc(x, y, rad, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.closePath();
-      initAngle += +ang;
-      initSpace += +spa;
-
-      return { x, y };
-    }
 
     const animate = () => {
 
@@ -86,9 +95,7 @@ const FibonacciFlower = (props) => {
           y + radius > size.height) &&
         (x - radius < 0 || x + radius > size.width)
       ) {
-        setAnimationToggler(false);
-        initAngle = 2;
-        initSpace = 1;
+        onResetAnimationHandler();
         return;
       }
 
@@ -97,12 +104,9 @@ const FibonacciFlower = (props) => {
 
     if(stopped) {
         setStopped(false);
-        ctx.clearRect(0,0,size.width,size.height);
-        initAngle = 2;
-        initSpace = 1;
+        onResetAnimationHandler();
         return;
       }
-    console.log(animationToggler);
 
     if (animationToggler) animate();
 
@@ -112,7 +116,7 @@ const FibonacciFlower = (props) => {
   }, [animationToggler, color, angle, space, radius]);
 
   return (
-  <section>
+  <section className={gClasses.Playground}>
       {playgroundUI}
       {canvasEl}
   </section>

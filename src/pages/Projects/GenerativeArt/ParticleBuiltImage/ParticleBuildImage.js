@@ -1,20 +1,22 @@
-import React, {useRef, useLayoutEffect} from 'react';
+import { useRef, useLayoutEffect } from "react";
+
+import usePlayground from "../../../../hooks/use-playground/use-playgroundSliders";
+
+import gClasses from '../../../../global.module.css';
 
 import classes from './ParticleBuiltImage.module.css';
 
 const myImage = new Image();
 
-
-
 let particleArray = [];
 
 class Particle {
-    constructor(canvas) {
-        this.x = Math.random() * canvas.width;
+    constructor(width, radius, velocity) {
+        this.x = Math.random() * width;
         this.y = 0;
         this.speed = 0;
-        this.velocity = Math.random() * 0.5;
-        this.size = Math.random() * 1.5 + 1;
+        this.velocity = Math.random() * velocity;
+        this.size = Math.random() * radius + 1;
         this.position1 = Math.floor(this.y);
         this.position2 = Math.floor(this.x);
     }
@@ -22,9 +24,9 @@ class Particle {
         this.position1 = Math.floor(this.y);
         this.position2 = Math.floor(this.x);
         this.speed = mappedImage[this.position1][this.position2].cellBrightness;
-        let movement = (2.5 - this.speed) + this.velocity;
+        let movement = (2.5 - this.speed);
 
-        this.y += movement;
+        this.y += movement * this.velocity;
         if(this.y >= canvas.height) {
             this.y = 0;
             this.x = Math.random() * canvas.width
@@ -37,17 +39,45 @@ class Particle {
         ctx.fill();
     }
 }
-function init(numberOfParticles, canvas) {
+function init(numberOfParticles, radius, velocity, width) {
     for(let i = 0; i < numberOfParticles; i++) {
-        particleArray.push(new Particle(canvas));
+        particleArray.push(new Particle(width, radius, velocity));
     }
 }
 
-function ParticleBuiltImage(props) {
-    const canv = useRef();
+function ParticleBuiltImage() {
+    const canvasRef = useRef();
+
+  const { playgroundUI, valRng, animationToggler} = usePlayground({
+    particlesAmount: {
+        elementType: "input",
+        inputType: "range",
+        value: "5000",
+        min: "1000",
+        max: "10000",
+        step: "100",
+      },
+    radius: {
+        elementType: "input",
+        inputType: "range",
+        value: "1.5",
+        min: "0.5",
+        max: "10",
+        step: "0.5",
+      },
+      velocity: {
+        elementType: "input",
+        inputType: "range",
+        value: "2.9",
+        min: "0.1",
+        max: "100",
+        step: "0.1",
+      },
+  }, "Particle Built Image", true);
+
+  const {particlesAmount: {value: particlesAmount}, radius: {value: radius}, velocity: {value: velocity}} = valRng;
 
     useLayoutEffect(() => {
-
         myImage.src = `data:image/jpeg;base64,/
 9j/4AAQSkZJRgABAQEBLAEsA
 AD/4QDaRXhpZgAATU0AKgAAA
@@ -2217,12 +2247,11 @@ RERERERERERERERERERERERE
 RERERERERERERERERERERERE
 REREREREREREREREQdVyXeSI
         iLhEREX/9k=`;
-        console.log('effect');
+
         let animationFrameId;
 
         const onLoadImage = () => {
-            console.log('onLoad');
-            const canvas = canv.current;
+            const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
             canvas.width = 366;
@@ -2233,8 +2262,6 @@ REREREREREREREREQdVyXeSI
             const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-
-            const numberOfParticles = 5000;
 
             let mappedImage = [];
             for(let y = 0; y < canvas.height; y++) {
@@ -2262,8 +2289,6 @@ REREREREREREREREQdVyXeSI
                 )/100
             }
 
-
-            init(numberOfParticles, canvas);
             function animate() {
                 ctx.globalAlpha = 0.05;
                 ctx.fillStyle = 'rgb(0, 0, 0)';
@@ -2276,7 +2301,11 @@ REREREREREREREREQdVyXeSI
                 }
                 animationFrameId = requestAnimationFrame(animate);
             }
-             animate();
+
+            if(animationToggler){
+                init(particlesAmount, radius, velocity, canvas.width);
+                animate()
+            };
         }
 
         myImage.addEventListener('load', onLoadImage);
@@ -2285,9 +2314,14 @@ REREREREREREREREQdVyXeSI
             window.cancelAnimationFrame(animationFrameId);
             myImage.removeEventListener('load', onLoadImage)
         }
-    }, []);
+    }, [animationToggler]);
 
-    return <canvas className={classes.Canvas} ref={canv} />
+    return (
+        <section className={gClasses.Playground}>
+            {playgroundUI}
+            <canvas style={{background: animationToggler ? 'transparent' : 'black'}} ref={canvasRef} className={classes.Canvas} />
+        </section>
+    )
 
 }
 

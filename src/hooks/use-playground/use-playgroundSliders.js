@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 
 import { updateObj } from "../../usefulFunc/utility";
 
@@ -18,14 +18,13 @@ const valRngStateReducer = (state, action) => {
   else return state;
 };
 
-const usePlaygroundSliders = (initialState) => {
+const usePlaygroundSliders = (initialState, playgroundName, disableControls) => {
   const [valRng, dispatchValRng] = useReducer(valRngStateReducer, initialState);
 
   const [animationToggler, setAnimationToggler] = useState(false);
   
   const [stopped, setStopped] = useState(false);
   
-  console.log(animationToggler);
 
   const onInputChange = (event, id) =>
     dispatchValRng({
@@ -54,7 +53,7 @@ const usePlaygroundSliders = (initialState) => {
       inputType={slider.config.inputType}
       label={slider.id}
       value={slider.config.value}
-      disabled={animationToggler}
+      disabled={animationToggler && disableControls}
       min={slider.config.min}
       max={slider.config.max}
       step={slider.config.step}
@@ -63,8 +62,8 @@ const usePlaygroundSliders = (initialState) => {
   ));
 
   const playgroundUI = (
-    <React.Fragment>
-      <div className={classes.RngValSliders}>
+      <section className={classes.RngValSliders}>
+        <h1 className={classes.PlaygroundName}>{playgroundName}</h1>
         {rngSliders}
         <Button
           btnType="Success"
@@ -72,8 +71,7 @@ const usePlaygroundSliders = (initialState) => {
         >
           {animationToggler ? "Stop!" : "Try it!"}
         </Button>
-      </div>
-    </React.Fragment>
+      </section>
   );
 
   return {

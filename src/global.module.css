@@ -1,0 +1,11 @@
+.Playground {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1000px) {
+    .Playground {
+        padding: 0 10px;
+         flex-direction: row;   
+        }
+}

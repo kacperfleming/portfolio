@@ -62,7 +62,6 @@ const useCanvas = (ready) => {
     const resizeHandler = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-          console.log('resize');
         dispatchCanvas({
           type: "SET_SIZE",
           height: canvas.getBoundingClientRect().height,

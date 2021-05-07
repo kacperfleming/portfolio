@@ -56,7 +56,7 @@ const ProjectsList = (props) => (
         {...props}
       >
         {category.items.map((item, i) => item.link[0] !== '/' 
-        ? <a href={item.link}><li>{item.itemTitle}</li></a>
+        ? <a key={i} href={item.link}><li>{item.itemTitle}</li></a>
         : (
           <Link key={i} to={item.link}>
             <li>{item.itemTitle}</li>

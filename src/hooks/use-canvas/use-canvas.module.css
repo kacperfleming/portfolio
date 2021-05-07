@@ -4,7 +4,7 @@
     height: 80vh;
     border-top: 5px solid rgb(0, 130, 139);
     border-bottom: 5px solid rgb(0, 130, 139);
-    background: white;
+    background: black;
     box-shadow: 0 0 10px rgb(0, 130, 139);
 }
 
@@ -12,7 +12,7 @@
     .Canvas {
         width: 60%;
         margin: 0 auto;
-        height: 70vh;
+        height: 100%;
         border: 5px solid rgb(0, 130, 139);
         border-radius: 15px;
     }
